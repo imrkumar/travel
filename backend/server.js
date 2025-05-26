@@ -5,6 +5,7 @@ const dbConnect = require("./src/config/db");
 const authRoutes = require("./src/routes/authRoutes");
 const blogRoutes = require("./src/routes/blogRoutes");
 const trekRoutes = require("./src/routes/trek.routes");
+const contactRoutes = require("./src/routes/contact.routes");
 const app = express();
 dbConnect();
 
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 app.use("/api", authRoutes);
 app.use("/api/blog", blogRoutes);
 app.use("/api/trek", trekRoutes);
+app.use("/api/contact",contactRoutes);
 
 app.use((err, req, res, next) => {
     console.error("Global error handler:", err);
